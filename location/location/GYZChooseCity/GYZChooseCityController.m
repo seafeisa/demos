@@ -413,7 +413,6 @@ NSString *const cityCell = @"CityCell";
 //开始定位
 -(void)locationStart{
     //判断定位操作是否被允许
-    
     if([CLLocationManager locationServicesEnabled]) {
         self.locationManager = [[CLLocationManager alloc] init] ;
         self.locationManager.delegate = self;
@@ -437,11 +436,12 @@ NSString *const cityCell = @"CityCell";
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 
 {
+    NSLog(@"locations == %@",locations);
     //系统会一直更新数据，直到选择停止更新，因为我们只需要获得一次经纬度即可，所以获取之后就停止更新
     [self.locationManager stopUpdatingLocation];
     //此处locations存储了持续更新的位置坐标值，取最后一个值为最新位置，如果不想让其持续更新位置，则在此方法中获取到一个值之后让locationManager stopUpdatingLocation
     CLLocation *currentLocation = [locations lastObject];
-    
+
     //获取当前所在的城市名
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     //根据经纬度反向地理编译出地址信息
@@ -461,10 +461,9 @@ NSString *const cityCell = @"CityCell";
                  city.cityName = currCity;
                  city.shortName = currCity;
                  [self.localCityData addObject:city];
-                 
                  [self.tableView reloadData];
              }
-             
+
          } else if (error ==nil && [array count] == 0)
          {
              NSLog(@"No results were returned.");
