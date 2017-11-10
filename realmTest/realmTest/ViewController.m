@@ -99,13 +99,12 @@
 
 - (void)updateBtnAct{
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"color = %@ AND name BEGINSWITH %@",@"白色",@"大"];
-                                                           
+   
     RLMResults *dogs = [Dog objectsWithPredicate:pred];
     [[RLMRealm defaultRealm] transactionWithBlock:^{
         for (Dog *dog in dogs) {
             dog.color = @"改后的颜色";
         }
-        
     }];
 }
 
