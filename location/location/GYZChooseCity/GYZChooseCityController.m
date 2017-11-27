@@ -450,12 +450,20 @@ NSString *const cityCell = @"CityCell";
          if (array.count >0)
          {
              CLPlacemark *placemark = [array objectAtIndex:0];
+         NSLog(@"name:%@\nthoroughfare:%@\nsubThoroughfare:%@\nlocality:%@\nsubLocality:%@\nadministrativeArea:%@\nsubAdministrativeArea:%@\npostalCode:%@\nISOcountryCode:%@\ncountry:%@\ninlandWater:%@\nocean:%@\nareasOfInterest:%@",placemark.name,placemark.thoroughfare,placemark.subThoroughfare,placemark.locality,placemark.subLocality,placemark.administrativeArea,placemark.subAdministrativeArea,placemark.postalCode,placemark.ISOcountryCode,placemark.country,placemark.inlandWater,placemark.ocean,placemark.areasOfInterest);
              //获取城市
              NSString *currCity = placemark.locality;
+         
              if (!currCity) {
                  //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
                  currCity = placemark.administrativeArea;
              }
+            NSString *sheng = placemark.administrativeArea;
+         
+         if ([[sheng substringFromIndex:sheng.length-1] isEqualToString:@"省"] || [[sheng substringFromIndex:sheng.length-1] isEqualToString:@"市"]) {
+             sheng = [sheng substringToIndex:sheng.length-1];
+         }
+         
              if (self.localCityData.count <= 0) {
                  GYZCity *city = [[GYZCity alloc] init];
                  city.cityName = currCity;
