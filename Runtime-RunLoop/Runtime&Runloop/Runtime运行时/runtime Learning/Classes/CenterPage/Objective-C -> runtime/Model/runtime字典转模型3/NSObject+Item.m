@@ -80,7 +80,6 @@
                 
                 // 把模型数组赋值给value
                 value = arrM;
-                
             }
         }
         
