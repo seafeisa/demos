@@ -1,10 +1,4 @@
-//
-//  DataSourceTool.h
-//  myDataSourceTest
-//
-//  Created by admin on 2017/10/25.
-//  Copyright © 2017年 Zhongshan Camry Electronic Company Limited. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>

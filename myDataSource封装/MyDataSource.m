@@ -1,10 +1,4 @@
-//
-//  MyDataSource.m
-//  myDataSourceTest
-//
-//  Created by admin on 2017/10/24.
-//  Copyright © 2017年 Zhongshan Camry Electronic Company Limited. All rights reserved.
-//
+
 
 #import "MyDataSource.h"
 #import "myCell.h"
