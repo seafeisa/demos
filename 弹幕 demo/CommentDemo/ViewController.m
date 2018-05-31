@@ -39,10 +39,6 @@
     self.bulletManager.generateBulletBlock = ^(BulletView *bulletView) {
         [myself addBulletView:bulletView];
     };
-    
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +104,5 @@
     }
     return _bulletBgView;
 }
-
 
 @end

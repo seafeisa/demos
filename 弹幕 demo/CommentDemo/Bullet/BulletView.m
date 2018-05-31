@@ -82,7 +82,6 @@
     }];
 }
 
-
 - (void)stopAnimation {
     self.bDealloc = YES;
     [self.layer removeAllAnimations];
